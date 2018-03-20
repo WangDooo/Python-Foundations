@@ -23,35 +23,48 @@
 #----------------------------------------------------------------
 
 
-#=======复杂数据结构=========================================================
+#=======复杂数据结构--堆=========================================================
 # 堆 是一个二叉树 每个父节点的值都小于或等于子节点的值 最小元素位于二叉树的根节点
 # heap[k]<=heap[2*k+1] heap[k]<=heap[2*k+2]
-# heapq模块
+# python heapq模块
 #----------------------------------------------------------------
-import heapq
-import random
-data = list(range(10))
-random.shuffle(data)
-heap = [] # 建堆
-for n in data:
-	heapq.heappush(heap,n)
-heapq.heappush(heap,0.5) # heappush() 新数据入堆
-heapq.heappop(heap) # heappop() 弹出最小元素 堆会自动重建
-print(data,'\n',heap)
-myheap = [1,2,3,5,7,8,9,4,10,333,666]
-print(myheap)
-heapq.heapify(myheap) # heapify() 将列表转化为堆
-print(myheap)
-heapq.heapreplace(myheap,6) # heapqreplace() 替换堆中的元素值，自动重新构建堆
-print(myheap)
-print(heapq.nlargest(3,myheap)) # nlargest() 返回前3个最大的元素
-#----------------------------------------------------------------
+# import heapq
+# import random
 
-
-#================================================================
-# 
+# data = list(range(10))
+# random.shuffle(data)
+# heap = [] # 建堆
+# for n in data:
+# 	heapq.heappush(heap,n)
+# heapq.heappush(heap,0.5) # heappush() 新数据入堆
+# heapq.heappop(heap) # heappop() 弹出最小元素 堆会自动重建
+# print(data,'\n',heap)
+# myheap = [1,2,3,5,7,8,9,4,10,333,666]
+# print(myheap)
+# heapq.heapify(myheap) # heapify() 将列表转化为堆
+# print(myheap)
+# heapq.heapreplace(myheap,6) # heapqreplace() 替换堆中的元素值，自动重新构建堆
+# print(myheap)
+# print(heapq.nlargest(3,myheap)) # nlargest() 返回前3个最大的元素
+# print(heapq.nsmallest(2,myheap)) # nsmallest() 返回前2个最小的元素
 #----------------------------------------------------------------
 
+
+#=======复杂数据结构--队列=========================================================
+# 队列 FIFO,LILO
+# queue collections.deque 模块
+#----------------------------------------------------------------
+import queue
+
+q = queue.Queue() # Queue()
+q.put(0)		  # 元素入队 添加到队伍尾部
+q.put(1)
+q.put(2)
+print(q.queue)
+print(q.get())	  # 队列头元素出队
+print(q.queue)
+print(q.get())
+print(q.queue)
 #----------------------------------------------------------------
 
 
