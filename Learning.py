@@ -51,20 +51,36 @@
 
 
 #=======复杂数据结构--队列=========================================================
-# 队列 FIFO,LILO
+# 队列 FIFO(First In First Out),LILO(Last In Last Out)
 # queue collections.deque 模块
 #----------------------------------------------------------------
 import queue
 
-q = queue.Queue() # Queue()
-q.put(0)		  # 元素入队 添加到队伍尾部
-q.put(1)
-q.put(2)
-print(q.queue)
-print(q.get())	  # 队列头元素出队
-print(q.queue)
-print(q.get())
-print(q.queue)
+# q = queue.Queue() # Queue()
+# q.put(0)		  # 元素入队 添加到队伍尾部
+# q.put(1)
+# q.put(2)
+# print(q.queue)
+# print(q.get())	  # 队列头元素出队
+# print(q.queue)
+# print(q.get())
+# print(q.queue)
+
+# # 后进先出序列
+# LiFoQueue = queue.LifoQueue(5)
+# LiFoQueue.put(1)
+# LiFoQueue.put(2)
+# LiFoQueue.put(3)
+# print(LiFoQueue.get(),LiFoQueue.get(),LiFoQueue.get())
+
+# 优先级队列
+PriQueue = queue.PriorityQueue(5) # by order
+PriQueue.put(3)
+PriQueue.put(5)
+PriQueue.put(1)
+PriQueue.put(8)
+print(PriQueue.queue)
+print(PriQueue.get(),PriQueue.get(),PriQueue.get(),PriQueue.get())
 #----------------------------------------------------------------
 
 
