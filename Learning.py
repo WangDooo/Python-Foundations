@@ -54,7 +54,7 @@
 # 队列 FIFO(First In First Out),LILO(Last In Last Out)
 # queue collections.deque 模块
 #----------------------------------------------------------------
-import queue
+# import queue
 
 # q = queue.Queue() # Queue()
 # q.put(0)		  # 元素入队 添加到队伍尾部
@@ -73,21 +73,28 @@ import queue
 # LiFoQueue.put(3)
 # print(LiFoQueue.get(),LiFoQueue.get(),LiFoQueue.get())
 
-# 优先级队列
-PriQueue = queue.PriorityQueue(5) # by order
-PriQueue.put(3)
-PriQueue.put(5)
-PriQueue.put(1)
-PriQueue.put(8)
-print(PriQueue.queue)
-print(PriQueue.get(),PriQueue.get(),PriQueue.get(),PriQueue.get())
+# # 优先级队列
+# PriQueue = queue.PriorityQueue(5) # by order
+# PriQueue.put(3)
+# PriQueue.put(5)
+# PriQueue.put(1)
+# PriQueue.put(8)
+# print(PriQueue.queue)
+# print(PriQueue.get(),PriQueue.get(),PriQueue.get(),PriQueue.get())
 #----------------------------------------------------------------
 
 
-#================================================================
-# 
+#=======复杂数据结构--栈=========================================================
+# 栈 后进先出(Last In First Out) 或 先进后出(First In Last Out)
+# pop() 弹出并返回列表的最后一个元素 但若列表为空 pop() 出栈 会报错，另外也无法限制栈的大小
 #----------------------------------------------------------------
-
+# myStack = []
+# myStack.append(3)
+# myStack.append(5)
+# myStack.append(7)
+# print(myStack)
+# print(myStack.pop(),myStack.pop(),myStack.pop())
+# myStack.pop() # IndexError: pop from empty list
 #----------------------------------------------------------------
 
 
