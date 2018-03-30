@@ -1,9 +1,9 @@
 import random
 import string
-import codecs
+import codecs  # 做中文utf8编码处理
 
-StringBase = '美国，对，中国，600亿，美元，商品，加征，关税，而，中国，的，反击，是，30亿，美元，中国的回击，偏软，了吗？高铁，装备，信息，技术，新能源，机器人，为什么，美，国专盯，中国的，高科技，过去，美国，针对中，国，启动的，301调查，已有5次，而，每一次，都以，协商，谈判，收场，那么，这一次，呢'
-StringBase = ''.join(StringBase.split('，'))
+StringBase = "中石化表示，公司注重发展质量和效益，持续优化原料、产品结构，增产市场需求旺盛的高附加值产品，炼油和化工业绩双创历史新高。炼油板块经营收益为650亿元，同比增长15.5%；化工板块实现经营收益为270亿元，同比增长30.8%"
+# StringBase = ''.join(StringBase.split('，'))
 def getEmail():
 	suffix = ['.com','.org','.net','.cn']
 	# string.ascii_letters = abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
@@ -32,7 +32,26 @@ def getNameOrAddress(flag):
 		result += random.choice(StringBase)
 	return result
 
-print(getEmail())
-print(getTelNo())
-print(StringBase)
-print(getNameOrAddress(0))
+def getSex():
+	return random.choice(('男','女'))
+
+def getAge():
+	return str(random.randint(18,100))
+
+def main(filename):
+	with codecs.open(filename,'w','utf-8') as fp:
+		fp.write('Name, Sex, Age, TelNo, Address, Email\n')
+		# 随机生成200人信息
+		for i in range(200):
+			name = getNameOrAddress(1)
+			sex = getSex()
+			age = getAge()
+			tel = getTelNo()
+			address = getNameOrAddress(0)
+			email = getEmail()
+			line = name+','+sex+','+age+','+tel+','+address+','+email+'\n'
+			fp.write(line)
+
+if __name__ == '__main__':
+	filename = 'random_info.txt'
+	main(filename)
