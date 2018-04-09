@@ -1,0 +1,16 @@
+Windows下打开.ipynb文件
+1.首先要下载python，设置环境变量
+2.下载pip，设置环境变量
+3.打开命令行，进入到python的Scripts文件中，按顺序执行下面三个命令
+pip install ipython
+pip install “ipython[notebook]”  
+ipython notebook
+
+----------------------------------------------------
+python 3.6 ,因为不想安装anaconda，但是ipyhon notebook一直出错，所以搞好后特此纪念一下。
+
+1命令行输入pip install ipython[all]， 安装ipython
+2 命令行输入ipython notebook，发现并不能运行，报错：ModuleNotFoundError: No module named 'markupsafe._compat'
+3 通过pip list 查看已经安装的包，发现已经安装markupsafe，但是在python环境下 import markupsafe._compat却发现没有这个模块，感觉像是是这个模块安装未成功，所以重新安装这个包。先通过pip uninstall markupsafe 卸载这个包。然后pip list ，确认卸载此模块。
+4 重新安装markupsafe这个模块：先不要直接pip install markupsafe安装，因为会发现错误：UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb6。但是这个时候你在pip list就会发现这个markupsafe已经安装好了，所以先pip uninstall markupsafe，确保，确保，确保这个包卸载。 打开python位置:C:\Python36\Lib\site-packages\pip\compat，用文本编辑器（如记事本）打开__init__.py，在第75行return s.decode('utf_8')，把这一行替换为return s.decode('cp936')。这个是pip安装模块经常碰到的错误。改完后保存，退出。再pip install markupsafe就可以正常安装这个包了。
+5 正常安装完这个包之后再ipython notebook，就发现可以打开了。
