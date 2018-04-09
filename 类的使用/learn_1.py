@@ -2,40 +2,73 @@
 # isinstance() 测试一个对象是否为某个类的实例 
 # pass 空位
 # self参数
+# types.MethodType 把一个函数变为一个方法 动态地添加到实例上
+# 函数和方法的区别：
+# 方法一般指与特定实例绑定的函数，通过对象调用方法时，对象本身将作为第一个参数传递过去，普通函数并不具备这个特点
 #----------------------------------------------------------------
-class Car: # 新式类必须至少有一个基类
-	def infor(self):
-		print("This is a car")
-# 定义好之后 实例化对象 "对象名.成员"来访问
-car = Car()
-car.infor()
+# class Car: # 新式类必须至少有一个基类
+# 	def infor(self):
+# 		print("This is a car")
+# # 定义好之后 实例化对象 "对象名.成员"来访问
+# car = Car()
+# car.infor()
 
-print(isinstance(car, Car))
+# print(isinstance(car, Car))
 
-class A:
-	pass
-def demo():
-	pass
-if 5 > 3:
-	pass
+# class A:
+# 	pass
+# def demo():
+# 	pass
+# if 5 > 3:
+# 	pass
 
-# 在类的实例方法中访问实例属性时需要以self为前缀 外部调用不需要
-class A:
-	def __init__(self,v):
-		self.value = v
-	def show(self):
-		print(self.value)
-a = A('12323')
-a.show()
+# # 在类的实例方法中访问实例属性时需要以self为前缀 外部调用不需要
+# class A:
+# 	def __init__(self,v):
+# 		self.value = v
+# 	def show(self):
+# 		print(self.value)
+# a = A('12323')
+# a.show()
+
+# # 类成员与实例成员
+# import types 
+
+# class Car:
+# 	price = 100 # 定义累哦属性
+# 	def __init__(self,c):
+# 		self.color = c # 定义实例属性
+
+# car1 = Car('Red')
+# car2 = Car('Blue')
+# print(car1.color,car2.color)
+# Car.price = 200 # 修改类属性
+# Car.name = 'QQ' # 增加类属性
+# car1.color = 'Black' # 修改实例属性
+# print(car1.color,Car.price,Car.name)
+# print(car2.color,Car.price,Car.name)
+# def setSpeed(self, s):
+# 	self.speed = s
+# car1.setSpeed = types.MethodType(setSpeed, Car) # 动态为对象增加成员方法
+# car1.setSpeed(50)
+# print(car1.speed)
 #----------------------------------------------------------------
 
 
-#================================================================
+#========私有成员与公有成员========================================================
 # 
 #----------------------------------------------------------------
-
+# 1. _xxx ：保护成员，不能用"from module import *"导入，只有类对象和子对象能访问这些成员
+# 2. __xxx__ : 系统定义的特殊成员
+# 3. __xxx : 类中的私有成员，只有类对象自己能访问，子类对象也不能访问到这个成员，但在对象外部可以通过"对象名._类名__xxx"来访问
 #----------------------------------------------------------------
+class Fruit:
+	def __init__(self):
+		self.__color ='Red'
+		self.price = 1
 
+apple = Fruit()
+print(apple.price)
 
 #----------------------------------------------------------------
 
