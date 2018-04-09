@@ -62,21 +62,58 @@
 # 2. __xxx__ : 系统定义的特殊成员
 # 3. __xxx : 类中的私有成员，只有类对象自己能访问，子类对象也不能访问到这个成员，但在对象外部可以通过"对象名._类名__xxx"来访问
 #----------------------------------------------------------------
-class Fruit:
-	def __init__(self):
-		self.__color ='Red'
-		self.price = 1
+# class Fruit:
+# 	def __init__(self):
+# 		self.__color ='Red'
+# 		self.price = 1
 
-apple = Fruit()
-print(apple.price)
+# apple = Fruit()
+# print(apple.price)
+# apple.price = 2 # 修改对象公开数据成员的值
+# print(apple.price) 
+# # 会报错 print(apple.__color) 不能访问对象的私有数据成员
+# print(apple.price, apple._Fruit__color)
+# apple._Fruit__color = 'Blue' # 修改对象私有数据成员的值
+# print(apple.price, apple._Fruit__color)
 
 #----------------------------------------------------------------
 
 
-#================================================================
-# 
+#========方法========================================================
+# 公有方法 私有方法 静态方法 类方法
+# 私有方法的名字以 '__'开始，每个对象都有自己的公有方法和私有方法 可以访问类和对象的成员
+# 公有方法通过对象名直接调用 私有方法不能通过对象名直接调用 只能用self调用
+# 静态方法和类方法都可以通过类名和对象名调用 但不能直访问属于对象的成员，只能访问属于类的成员
+# 一般将cls作为类的第一个参数名称 在调用类方法时不需要为该参数传递值
 #----------------------------------------------------------------
+class Root:
+	__total = 0
+	def __init__(self, v):
+		self.__value = v
+		Root.__total += 1
 
+	def show(self):
+		print('self.__value:',self.__value)
+		print('Root.__total:',Root.__total)
+
+	@ classmethod
+	def classShowTotal(cls): # 类方法
+		print(cls.__total)
+
+	@ staticmethod
+	def staticShowTotal(): # 静态方法
+		print(Root.__total)
+
+r = Root(3)
+r.classShowTotal() # 通过对象调用类方法
+
+r.staticShowTotal() # 通过对象调用静态方法
+
+r.show()
+
+rr = Root(5)
+Root.classShowTotal() # 通过类名调用类方法
+Root.staticShowTotal() # 通过类名调用静态方法
 #----------------------------------------------------------------
 
 
