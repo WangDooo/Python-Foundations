@@ -86,34 +86,40 @@
 # 静态方法和类方法都可以通过类名和对象名调用 但不能直访问属于对象的成员，只能访问属于类的成员
 # 一般将cls作为类的第一个参数名称 在调用类方法时不需要为该参数传递值
 #----------------------------------------------------------------
-class Root:
-	__total = 0
-	def __init__(self, v):
-		self.__value = v
-		Root.__total += 1
+# class Root:
+# 	__total = 0
+# 	def __init__(self, v):
+# 		self.__value = v
+# 		Root.__total += 1
 
-	def show(self):
-		print('self.__value:',self.__value)
-		print('Root.__total:',Root.__total)
+# 	def show(self):
+# 		print('self.__value:',self.__value)
+# 		print('Root.__total:',Root.__total)
 
-	@ classmethod
-	def classShowTotal(cls): # 类方法
-		print(cls.__total)
+# 	@ classmethod
+# 	def classShowTotal(cls): # 类方法
+# 		print(cls.__total)
 
-	@ staticmethod
-	def staticShowTotal(): # 静态方法
-		print(Root.__total)
+# 	@ staticmethod
+# 	def staticShowTotal(): # 静态方法
+# 		print(Root.__total)
 
-r = Root(3)
-r.classShowTotal() # 通过对象调用类方法
+# r = Root(3)
+# r.classShowTotal() # 通过对象调用类方法
 
-r.staticShowTotal() # 通过对象调用静态方法
+# r.staticShowTotal() # 通过对象调用静态方法
 
-r.show()
+# r.show()
 
-rr = Root(5)
-Root.classShowTotal() # 通过类名调用类方法
-Root.staticShowTotal() # 通过类名调用静态方法
+# rr = Root(5)
+# Root.classShowTotal() # 通过类名调用类方法
+# Root.staticShowTotal() # 通过类名调用静态方法
+
+# # Root.show() 报错 不能通过类名直接调用实例方法
+
+# Root.show(r)
+# rr.show()
+# Root.show(rr) # 通过类名调用实例方法时为 self参数显示传递对象名
 #----------------------------------------------------------------
 
 
