@@ -95,19 +95,27 @@
 # rename(src,dst)
 # listdir(path) 返回path目录下的文件和目录列表
 # os.path模块
-
 #----------------------------------------------------------------
-import os
-import os.path
+# import os
+# import os.path
 
-print(os.path.exists('test1.txt'))
-# os.rename('test1.txt','rename.txt')
-os.rename('test1.txt','./filetxt/rename.txt') # os.rename()可以实现文件的改名和移动
+# print(os.path.exists('test1.txt'))
+# # os.rename('test1.txt','rename.txt')
+# os.rename('test1.txt','./filetxt/rename.txt') # os.rename()可以实现文件的改名和移动
 #----------------------------------------------------------------
 
 
-#================================================================
-# 
+#=========目录操作=======================================================
+# mkdir(path) 创建目录
+# makedirs(path1/path2...)
+# rmdir(path) 删除目录
+# removedirs(path1/path2...)
+# listdir(path) ls
+# getcwd() 返回当前工作目录
+# get_exec_path() 返回可执行文件的搜索路径
+# chdir(path) cd
+# walk(top,topdown=True,onerror=None) 遍历目录树,该方法返回一个元组,包含三个元素：
+# 所有路径名、所有目录列表、文件列表
 #----------------------------------------------------------------
 
 #----------------------------------------------------------------
