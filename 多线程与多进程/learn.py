@@ -66,22 +66,22 @@
 #=========isAlive()=======================================================
 # 
 #----------------------------------------------------------------
-import threading
-import time
+# import threading
+# import time
 
-def func1(x, y):
-	for i in range(x, y):
-		print(i, end='')
-	time.sleep(10)
+# def func1(x, y):
+# 	for i in range(x, y):
+# 		print(i, end='')
+# 	time.sleep(10)
 
-t1 = threading.Thread(target=func1, args=(15,20))
-t1.start()
-t1.join(10) # 相当于给t1自己单独的10秒钟时间
-t2 = threading.Thread(target=func1, args=(5,10))
-t2.start()
-t2.join()
-print('t1:', t1.isAlive())
-print('t2:', t2.isAlive())
+# t1 = threading.Thread(target=func1, args=(15,20))
+# t1.start()
+# t1.join(10) # 相当于给t1自己单独的10秒钟时间
+# t2 = threading.Thread(target=func1, args=(5,10))
+# t2.start()
+# t2.join()
+# print('t1:', t1.isAlive())
+# print('t2:', t2.isAlive())
 #----------------------------------------------------------------
 
 
