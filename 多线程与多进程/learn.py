@@ -150,21 +150,30 @@
 # 可重入锁RLocK对象也是一种常用的线程同步原语，可被同一个线程acquire()多次
 # RLocK对象的acquire()/release()调用对可以嵌套，仅当最后一个或者最外层的release()执行结束后，锁才会被设置为unlocked状态
 #----------------------------------------------------------------
-import threading
-import time
+# import threading
+# import time
 
-class mythread(threading.Thread):
-	def __init__(self):
-		threading.Thread.__init__(self)
+# class mythread(threading.Thread):
+# 	def __init__(self):
+# 		threading.Thread.__init__(self)
 
-	def run(self):
-		global x
-		lock.acquire()
-		for i in range(3):
-			x = x + i
-		time.sleep(2)
-		print(x)
-		lock.release()
+# 	def run(self):
+# 		global x
+# 		lock.acquire()
+# 		for i in range(3):
+# 			x = x + i
+# 		time.sleep(2)
+# 		print(x)
+# 		lock.release()
+
+# lock = threading.RLock()
+# tl = []
+# for i in range(10):
+# 	t = mythread()
+# 	tl.append(t)
+# x = 0
+# for i in tl:
+# 	i.start()
 #----------------------------------------------------------------
 
 
